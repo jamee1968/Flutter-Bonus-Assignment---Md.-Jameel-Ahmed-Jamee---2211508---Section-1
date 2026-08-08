@@ -5,6 +5,7 @@ import 'package:summer_iub_app/utility/constant.dart';
 
 class CoffeeStateManagement with ChangeNotifier {
   List<CoffeeRecordsModel> items = [];
+  int quickTestCounter = 0; 
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 

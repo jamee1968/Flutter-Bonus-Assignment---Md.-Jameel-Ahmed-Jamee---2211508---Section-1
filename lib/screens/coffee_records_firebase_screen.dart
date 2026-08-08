@@ -61,10 +61,10 @@ class _CoffeeRecordsFirebaseScreenState
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          _quickTestCounter++;
+          csm.quickTestCounter++;
           final testRecord = CoffeeRecordsModel(
             id: DateTime.now().microsecondsSinceEpoch,
-            title: "New Coffee Record $_quickTestCounter",
+            title: "New Coffee Record ${csm.quickTestCounter}",
             des: "This is a TEST DATA",
             amount: 10.0,
             date: DateTime.now(),
