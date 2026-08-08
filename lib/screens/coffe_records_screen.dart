@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:summer_iub_app/models/coffee_records_model.dart';
+import 'package:summer_iub_app/state_management/coffee_state_management.dart';
+import 'package:summer_iub_app/widgets/app_backgroud_design_widget.dart';
+
+class CoffeRecordsScreen extends StatefulWidget {
+  const CoffeRecordsScreen({super.key});
+
+  @override
+  State<CoffeRecordsScreen> createState() => _CoffeRecordsScreenState();
+}
+
+class _CoffeRecordsScreenState extends State<CoffeRecordsScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Coffee Records",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20.00,
+          ),
+        ),
+        backgroundColor: Colors.brown,
+        foregroundColor: Colors.white,
+      ),
+      body: Consumer<CoffeeStateManagement>(
+        builder: (context, csm, _) {
+          return AppBackgroudDesignWidget(
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              itemCount: csm.items.length,
+              itemBuilder: (context, index) {
+                final CoffeeRecordsModel coffeeRecord = csm.items[index];
+
+                return Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.coffee),
+                    // Fixed: Added null safety fallbacks for nullable fields
+                    title: Text(coffeeRecord.title ?? ''),
+                    subtitle: Text(
+                      "${coffeeRecord.des ?? ''} - Amount: ${coffeeRecord.amount ?? 0.0} - ID: (${coffeeRecord.id ?? 0})",
+                    ),
+                  ),
+                );
+              },
+            ),
+          );
+        },
+      ),
+      floatingActionButton: Consumer<CoffeeStateManagement>(
+        builder: (context, csm, _) {
+          return FloatingActionButton(
+            onPressed: () {
+              csm.addData();
+            },
+            child: const Icon(Icons.local_cafe),
+          );
+        },
+      ),
+    );
+  }
+}
