@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "305063137344",
+    "project_id": "coffee-house-jamee",
+    "storage_bucket": "coffee-house-jamee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305063137344:android:cc3a5af466f65ceb18cfa5",
+        "android_client_info": {
+          "package_name": "com.example.summer_iub_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVtP2LkaGOC3kSDBTam1RxSZjjQRZFdYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
